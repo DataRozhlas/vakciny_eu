@@ -24,18 +24,18 @@
           spacingRight: 0,
         },
         credits: {
-          href: 'https://onemocneni-aktualne.mzcr.cz/vakcinace-cr',
-          text: 'Zdroj dat: ÚZIS',
+          href: 'https://ourworldindata.org/grapher/covid-vaccination-doses-per-capita?country=DEU~POL~CZE~SVK~AUT',
+          text: 'Zdroj dat: Our World in Data',
         },
         title: {
-          text: 'Očkovaní a nakažení ve věku 80+',
+          text: 'Podané vakcíny proti covid-19 na 100 obyvatel',
           align: 'left',
           style: {
             fontWeight: 'bold',
           },
         },
         subtitle: {
-          text: `Aktualizováno ${Highcharts.dateFormat('%d. %m.', dataSeries[0].data.slice(-1)[0][0])}`,
+          text: `Celkový počet dávek vakcíny, nemusí se tedy rovnat celkovému počtu naočkovaných osob. Aktualizováno ${Highcharts.dateFormat('%d. %m.', dataSeries[0].data.slice(-1)[0][0])}`,
           align: 'left',
           useHTML: true,
         },
@@ -50,7 +50,7 @@
             },
           },
           title: {
-            text: 'nakažených na 10 tis.',
+            text: 'očkovaných na 100 osob',
             style: {
               color: '#de2d26',
             },
