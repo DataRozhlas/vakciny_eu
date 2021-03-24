@@ -35,7 +35,7 @@
           },
         },
         subtitle: {
-          text: `Celkový počet dávek vakcíny, nemusí se tedy rovnat celkovému počtu naočkovaných osob. Aktualizováno ${Highcharts.dateFormat('%d. %m.', dataSeries[0].data.slice(-1)[0][0])}`,
+          text: `Odpovídá počtu osob, které dostaly alespoň jednu dávku vakcíny. Aktualizováno ${Highcharts.dateFormat('%d. %m.', dataSeries[0].data.slice(-1)[0][0])}`,
           align: 'left',
           useHTML: true,
         },
@@ -50,7 +50,7 @@
             },
           },
           title: {
-            text: 'očkovaných na 100 osob',
+            text: 'podaných dávek na 100 osob',
             style: {
               color: '#de2d26',
             },
@@ -62,7 +62,7 @@
             const p = this.points;
             let pct = 0;
             if (p[1]) { pct = p[1].y; }
-            return `${Highcharts.dateFormat('%d. %m. %y', p[0].x)}<br>nakažení: ${p[0].y} na 10 tis.<br>očkovaní: ${pct} %`;
+            return `${Highcharts.dateFormat('%d. %m. %y', p[0].x)}<br>dávek: ${p[0].y} na 100 osob<br>`;
           },
         },
         plotOptions: {
