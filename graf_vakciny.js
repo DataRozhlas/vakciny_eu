@@ -28,41 +28,34 @@
           text: 'Zdroj dat: Our World in Data',
         },
         title: {
-          text: 'Podané vakcíny proti covid-19 na 100 obyvatel',
+          text: 'Očkovaní proti covid-19 na 100 obyvatel',
           align: 'left',
           style: {
             fontWeight: 'bold',
           },
         },
         subtitle: {
-          text: `Odpovídá počtu osob, které dostaly alespoň jednu dávku vakcíny. Aktualizováno ${Highcharts.dateFormat('%d. %m.', dataSeries[0].data.slice(-1)[0][0])}`,
+          text: `Počet osob, které dostaly alespoň jednu dávku vakcíny. Aktualizováno ${Highcharts.dateFormat('%d. %m.', dataSeries[0].data.slice(-1)[0][0])}`,
           align: 'left',
           useHTML: true,
         },
         xAxis: {
           type: 'datetime',
         },
-        yAxis: [{
-          labels: {
-            format: '{value}',
-            style: {
-              color: '#de2d26',
-            },
-          },
+        yAxis: {
           title: {
-            text: 'podaných dávek na 100 osob',
-            style: {
-              color: '#de2d26',
-            },
+            text: 'počet osob s alespoň první dávkou na 100 obyvatel',
           },
-        }],
+        },
         tooltip: {
           shared: true,
           formatter() {
             const p = this.points;
-            let pct = 0;
-            if (p[1]) { pct = p[1].y; }
-            return `${Highcharts.dateFormat('%d. %m. %y', p[0].x)}<br>dávek: ${p[0].y} na 100 osob<br>`;
+            let txt = '';
+            p.forEach(cnt => {
+              txt += `<span style='color: ${cnt.color};'>${cnt.series.name}: ${cnt.y}</span><br>`;
+            });
+            return `<b>${Highcharts.dateFormat('%d. %m. %y', p[0].x)}</b><br>celkem očkovaných na 100 obyvatel<br>${txt}`;
           },
         },
         plotOptions: {
